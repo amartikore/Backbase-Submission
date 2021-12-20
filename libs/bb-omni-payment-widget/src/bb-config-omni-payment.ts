@@ -36,8 +36,7 @@ import {
         }       
       },
            
-    ],
-    cssClasses: ['mx-auto','col-lg-6','m-0','p-0'],    
+    ],  
   };
 
   const initiator: PaymentFormGroup = {
@@ -53,7 +52,6 @@ import {
         },
       },
     ],
-    cssClasses: ['mx-auto','col-lg-6','m-0' ,'p-0'],
   };
 
   const counterParty: PaymentFormGroup = {
@@ -69,7 +67,6 @@ import {
         },
       },  
     ],
-    cssClasses: ['mx-auto','col-lg-6','m-0' ,'p-0'],
   };
  
   const remittanceInfo: PaymentFormGroup = {
@@ -95,12 +92,10 @@ import {
           rows: 3,
           maxLength: 140,
           cols: 50,
-          cssClasses: ['d-inline-block', 'col-12', 'px-0', 'mx-auto'],
         },
       },
       
-    ],
-    cssClasses: ['mx-auto','col-lg-6','m-0' ,'p-0']    
+    ],  
   };
       
   export const SEPA: PaymentTypeConfig = {

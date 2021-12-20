@@ -20,25 +20,25 @@ const pageModel: Item = {
       },
       children: [
         {
-          name: "atm-locator-tab",
+          name: "Product-Summary-Tab",
           properties: {
-            classId: "PanelContainerComponent"
+            title:"OOTB Product Summary Widget Functionality",
+            classId: "PanelContainerComponent"            
           },
           children: [
-            /*
-              Add AtmsLocatorWidgetComponent
-            */
             {
-              name: "Omni Payment",
+              name: "Product-Summary-Widget",
               properties: {
-                classId: "BbOmniPaymentWidgetComponent",
+                classId: "ProductSummaryListWidgetComponent",
+                lable:"name"
               }
             }
           ]
         },
         {
-          name: "atm-detail-tab",
+          name: "Omni-Payment-Tab",
           properties: {
+            title:"Omni Payment Functionality",
             classId: "PanelContainerComponent"
           },
           children: [
@@ -46,9 +46,9 @@ const pageModel: Item = {
               Add AtmDetailWidgetComponent
             */
             {
-              name: "atm-detail",
+              name: "Omni-Payment",
               properties: {
-                classId: "ProductSummaryListWidgetComponent",
+                classId: "BbOmniPaymentWidgetComponent",
               }
             }
           ]
