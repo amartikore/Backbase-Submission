@@ -1,0 +1,245 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "retail-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "apps/retail-app",
+      "sourceRoot": "apps/retail-app/src",
+      "prefix": "bb",
+      "architect": {
+        "build": {
+          "builder": "@bb-cli/bb-ang:browser",
+          "options": {
+            "outputPath": "dist/retail-app",
+            "index": "apps/retail-app/src/index.html",
+            "main": "apps/retail-app/src/main.ts",
+            "polyfills": "apps/retail-app/src/polyfills.ts",
+            "tsConfig": "apps/retail-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              {
+                "input": "dist/custom-project-assets",
+                "glob": "**/*",
+                "output": "assets"
+              },
+              "apps/retail-app/src/favicon.ico",
+              "apps/retail-app/src/assets"
+            ],
+            "styles": [ "themes\\backbase-theme\\scss\\main.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/retail-app/src/environments/environment.ts",
+                  "with": "apps/retail-app/src/environments/environment.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "8mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "shared": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/retail-app/src/environments/environment.ts",
+                  "with": "apps/retail-app/src/environments/environment.shared.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "retail-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "retail-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "retail-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/retail-app/src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "apps/retail-app/src/polyfills.ts",
+            "tsConfig": "apps/retail-app/src/../../../tsconfig.spec.json",
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "test.ts",
+              "**/polyfills.ts"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/retail-app/tsconfig.app.json",
+              "apps/retail-app/src/../../../tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "retail-app-e2e": {
+      "projectType": "application",
+      "root": "apps/retail-app-e2e",
+      "prefix": "bb",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/retail-app-e2e/protractor.conf.js",
+            "devServerTarget": "retail-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "retail-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/retail-app-e2e/tsconfig.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "backbase-prduct-wrapper-widget": {
+      "projectType": "library",
+      "root": "libs/backbase-prduct-wrapper-widget",
+      "sourceRoot": "libs/backbase-prduct-wrapper-widget/src",
+      "prefix": "bb",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/backbase-prduct-wrapper-widget/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "apps/retail-app/src/polyfills.ts",
+            "tsConfig": "./tsconfig.spec.json",
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "test.ts",
+              "**/polyfills.ts"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "files": [
+              "libs/backbase-prduct-wrapper-widget/**/*.ts"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "bb-omni-payment-widget": {
+      "projectType": "library",
+      "root": "libs/bb-omni-payment-widget",
+      "sourceRoot": "libs/bb-omni-payment-widget/src",
+      "prefix": "bb",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/bb-omni-payment-widget/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "apps/retail-app/src/polyfills.ts",
+            "tsConfig": "./tsconfig.spec.json",
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "test.ts",
+              "**/polyfills.ts"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "files": [
+              "libs/bb-omni-payment-widget/**/*.ts"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@bb-cli/schematics"
+  },
+  "defaultProject": "retail-app"
+}
