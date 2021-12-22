@@ -7,14 +7,16 @@ This project is scaffolded for standalone Backbase project development environme
 >> Omni Payment Functionality
 
 ## To run the project - 
-1. navigate to root folder of the project and hit the following command in CMD - 
+1. Navigate to root folder of the project and hit the following command in CMD - 
    npm install  
 2. Upon completion of above command, hit the below command -
    npm start
 3. And after successful build, you can see the output of project using below link - 
    http://localhost:4200/
+4. Also to enable mocks in for our local enviroment, please add "enableMocks" with value as "true" in localStorage of the browser tab.
    
- ## Below is the screshoot of the porjet -->
+   
+ ## Below are the screshoots of the porjet -->
  
    ![image](https://user-images.githubusercontent.com/66839883/147071450-1dffa09d-3049-45e8-90c6-bb541792afb9.png)
 
