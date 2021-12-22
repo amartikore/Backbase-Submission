@@ -13,7 +13,7 @@ This project is scaffolded for standalone Backbase project development environme
    npm start
 3. And after successful build, you can see the output of project using below link - 
    http://localhost:4200/
-4. Also to enable mocks in for our local enviroment, please add "enableMocks" with value as "true" in localStorage of the browser tab.
+4. Also to enable mocks for our local enviroment, add the property with the name "enableMocks" and set it's value to "true" in localStorage of the browser tab.
    
    
  ## Below are the screshoots of the porjet -->
