@@ -15,6 +15,11 @@ This project is scaffolded for standalone Backbase project development environme
    http://localhost:4200/
    
  ## Below is the screshoot of the porjet -->
+ 
+   ![image](https://user-images.githubusercontent.com/66839883/147071450-1dffa09d-3049-45e8-90c6-bb541792afb9.png)
+
+
+
    
    ![image](https://user-images.githubusercontent.com/66839883/146842404-88651ad5-906d-46e0-84ce-db937d1d317e.png)
 
