@@ -3,7 +3,7 @@
 This project is scaffolded for standalone Backbase project development environment 
 
 ## This project includes two main feature implementations -
->> OTB Product Summary Widget Functionality
+>> Implementation of OOTB Product Summary Widget Functionality &
 >> Omni Payment Functionality
 
 ## To run the project - 
